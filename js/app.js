@@ -43,12 +43,13 @@ var MonsterModel = {
    },
 };
 
-function updatePic(){
+function updateInterface(){
   $("#monsterPicture").attr("src", MonsterModel.getCurrentMonster().pic);
+  $("#monsterCatched").html(MonsterModel.currentMonsterIndex);
 }
 
 function catchButtonAction(){
   var guess = $("[name='monsterName']").val();
   MonsterModel.catchMonster(guess);
-  updatePic();
+  updateInterface();
 }
