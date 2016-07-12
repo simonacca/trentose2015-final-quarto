@@ -7,6 +7,7 @@ var MonsterModel = {
    /* Collection of available monsters */
    collection : monsters,
    currentMonsterIndex: null,
+   isEnded: false,  // necessary since the currentMonsterIndex cannot both be correct at all times and serve as a termination check
 
    /* Start the iteration over the collection of monsters.
    it sets the first element as the current monster */
@@ -27,14 +28,14 @@ var MonsterModel = {
     * correctly named the monster, false otherwise
     */
    catchMonster : function (monsterName){
-    if (monsterName == this.getCurrentMonster().name){
+    if (this.isEnded){
+      alert('No more monsters');
+    }
+    else if (monsterName == this.getCurrentMonster().name){
        alert('Caught!');
-
-       if (this.currentMonsterIndex >= this.collection.length - 1){
-         alert('No more monsters');
-       }
-       else {
-         this.currentMonsterIndex += 1;
+       this.currentMonsterIndex += 1;
+       if (this.currentMonsterIndex >= this.collection.length){
+         this.isEnded = true;
        }
      }
      else {
