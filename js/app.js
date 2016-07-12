@@ -42,3 +42,13 @@ var MonsterModel = {
      }
    },
 };
+
+function updatePic(){
+  $("#monsterPicture").attr("src", MonsterModel.getCurrentMonster().pic);
+}
+
+function catchButtonAction(){
+  var guess = $("[name='monsterName']").val();
+  MonsterModel.catchMonster(guess);
+  updatePic();
+}

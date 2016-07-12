@@ -8,23 +8,30 @@
 <body>
 
   <h1><img src="img/pokemon-icon.png"> Monster Catch:<span> Lazy edition</span></h1>
-  
+
   <div class="card">
-  
+
     <h2>Monsters around you</h2>
-    
+
     <!-- you should change the picture in your js code -->
     <img id="monsterPicture" src="img/caterpie.png">
-    
+
     <p><input type="text" name="monsterName" placeholder="Name the monster"></p>
-    <button>Catch!</button>                
-                    
-  
+    <button onclick="catchButtonAction()">Catch!</button>
+
+
   </div>
-  
-  <script src="lib/jquery-2.1.0.min.js"></script>         
-  <script src="js/data.js"></script>        
+
+  <script src="lib/jquery-2.1.0.min.js"></script>
+  <script src="js/data.js"></script>
   <script src="js/app.js"></script>
-  
+  <script type="text/javascript">
+  $(document).ready(function() {
+    console.log('ready');
+    MonsterModel.init();
+    updatePic();
+  });
+  </script>
+
 </body>
 </html>
